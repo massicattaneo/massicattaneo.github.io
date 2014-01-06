@@ -7,10 +7,23 @@
     <link href="normalize.css" rel="stylesheet" type="text/css" />
     <link href="style.css" rel="stylesheet" type="text/css" />
     <link href="gitHubWebSite/fonts/fontTypes.css" rel="stylesheet" type="text/css" />
+    <link href="gitHubWebSite/css/clock.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="gitHubWebSite/js/Base.js"></script>
+    <script type="text/javascript" src="gitHubWebSite/js/prototypes.js"></script>
+    <script type="text/javascript" src="gitHubWebSite/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="gitHubWebSite/js/jquery.base.clock.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#clock").clock({ startDate: new Date(), endDate: new Date('2014-01-28T00:00:00') });
+        });
+    </script>
 </head>
 <body>
 
     <div id="header-wrapper">
+        <div id="clock-wrapper">
+            <div id="clock" class="flip-clock-wrapper"></div>
+        </div>
         <!--<span><em>&#xF015;</em> HOME</span>
         <span><em>&#xF108;</em> PROJECTs</span>-->
     </div>

@@ -8,7 +8,8 @@
     background: linear-gradient(to bottom,  #590000 0%,#8e0000 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#590000', endColorstr='#8e0000',GradientType=0 );
 }
-h5, a:link, a:hover, a:visited, a:active, a:link,a {color: #590000; text-decoration:none;}
+a:link, a:hover, a:visited, a:active, a:link,a {color: #590000; text-decoration:none;}
+h5 {color:#888;}
 a:hover {text-decoration:underline;}
 a.fb:link, a.fb:visited, a.fb:active, a.fb:link {color:#3B5998;text-decoration:none;}
 a.tw:link, a.tw:visited, a.tw:active, a.tw:link{color:#00ACEE;text-decoration:none;}
@@ -22,10 +23,8 @@ h1,h2,h3,h4,h5,h6 {margin:0;}
 
 #header-wrapper {height:87px; width:100%;border-bottom:4px solid #fff;text-align:center;
                  color: #fff;}
-#header-wrapper span {display: inline-block;font-size: 33px;border: 2px inset;
-                      padding: 6px 42px;border-radius: 6px;margin-top: 15px;
-                      background: #590000;
-}
+#clock-wrapper {position:relative; margin:0 auto; text-align:left; width:746px;padding:22px;}
+#clock {position: absolute;top: -49px;}
 #header-wrapper span em {font-family: Symbols; font-style:normal;}
 .index {margin:0 auto; text-align:left; width:746px;padding:22px;}
 .index .images {position:relative;width: 50%;float:left;margin: 0 22px 22px 0;}
@@ -37,8 +36,7 @@ h1,h2,h3,h4,h5,h6 {margin:0;}
 
 @media screen and (max-width: 440px) {
     #header-wrapper {height: 65px;}
-    #header-wrapper span {font-size: 22px;
-                    padding: 6px 24px;margin-top: 13px;}
     .index {width:298px;}   
-    .index .images {width: 100%;}  
+    .index .images {width: 100%;}
+    .index .flip-clock-wrapper ul {height: 51px;line-height: 51px;}
 }

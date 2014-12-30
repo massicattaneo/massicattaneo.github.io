@@ -1,64 +1,124 @@
-﻿<!DOCTYPE html>
-
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="utf-8" />
-    <title>Max Cattaneo</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href="normalize.css" rel="stylesheet" type="text/css" />
-    <link href="style.css" rel="stylesheet" type="text/css" />
-    <link href="gitHubWebSite/fonts/fontTypes.css" rel="stylesheet" type="text/css" />
-    <link href="gitHubWebSite/css/clock.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="gitHubWebSite/js/Base.js"></script>
-    <script type="text/javascript" src="gitHubWebSite/js/prototypes.js"></script>
-    <script type="text/javascript" src="gitHubWebSite/js/jquery-1.7.2.min.js"></script>
-    <script type="text/javascript" src="gitHubWebSite/js/jquery.base.clock.js"></script>
-    <script>
-        $(document).ready(function () {
-            $("#clock").clock({ startDate: new Date(), endDate: new Date('2014-01-28T00:00:00') });
-        });
-    </script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Zeal</title>
+    <link href="share/css/forms.css" rel="stylesheet" />
+    <link href='http://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+
+    <script src="share/js/jQuery-min-1.10.2.js"></script>
+    <script src="share/js/base2.js"></script>
+    <script src="share/js/core.js"></script>
+    <script src="share/js/jquery.base.forms-min.js"></script>
+    <script src="share/js/base.canvas.js"></script>
+
+    <style>
+        body {padding: 0; margin: 0;}
+        canvas {position: absolute; width:100%;height:150px}
+        .top {top:0px}
+        .bottom {top:150px}
+        #letter {
+            position: relative; top:300px; width: 990px; margin: 0 auto; font-family: Arial;
+        }
+    </style>
 </head>
 <body>
+    <!--############ ANIMATED WAVES ############-->
+    <canvas id="wave1" class="top"></canvas>
+    <canvas id="wave2" class="bottom"></canvas>
+    <canvas id="wave3" class="top"></canvas>
+    <canvas id="wave4" class="bottom"></canvas>
+    <canvas id="wave5" class="top"></canvas>
+    <canvas id="wave6" class="bottom"></canvas>
+    <div style="position: absolute;color: #fff;font-family: 'Chivo', sans-serif;font-weight: bold;font-size: 69px;top: 108px;left: 56px;">ZEAL</div>
+    <script>
+        $(document).ready(function () {
+            $("#wave1").canvasWaves({
+                fillColor: "#A4DFE7",
+                strokeColor: "#A4DFE7",                
+                pointsY: [0, 10, 50, 90],
+                levels: [0.3, 0.3, 0.3, 0.5, 0.9, 0.9],
+                rangeX: 50,
+                
+                duration: { min: 120, max: 250 },
+                topAlign: false
+            });
+            $("#wave2").canvasWaves({
+                fillColor: "#2599B2",
+                strokeColor: "#2599B2",
+                pointsY: [0, 10, 50, 90],
+                levels: [0.7, 0.7, 0.7, 0.5, 0.3, 0.1],
+                rangeX: 50,
+                
+                duration: { min: 200, max: 350 }
+            });
+            $("#wave3").canvasWaves({
+                fillColor: "#237D9F",
+                strokeColor: "#237D9F",
+                pointsY: [0, 10, 50, 90],
+                levels: [0.3, 0.3, 0.3, 0.5, 0.9, 0.9],
+                rangeX: 50,
+                
+                duration: { min: 120, max: 250 },
+                topAlign: false
+            });
+            $("#wave4").canvasWaves({
+                fillColor: "#2599B2",
+                strokeColor: "#2599B2",
+                pointsY: [0, 10, 50, 90],
+                levels: [0.7, 0.7, 0.7, 0.5, 0.3, 0.1],
+                rangeX: 50,
+                
+                duration: { min: 200, max: 350 }
+            });
+            $("#wave5").canvasWaves({
+                fillColor: "#237D9F",
+                strokeColor: "#237D9F",
+                pointsY: [0, 10, 50, 90],
+                levels: [0.3, 0.3, 0.3, 0.5, 0.9, 0.9],
+                rangeX: 50,
+                
+                duration: { min: 120, max: 250 },
+                topAlign: false
+            });
+            $("#wave6").canvasWaves({
+                fillColor: "#2599B2",
+                strokeColor: "#2599B2",
+                pointsY: [0, 10, 50, 90],
+                levels: [0.7, 0.7, 0.7, 0.5, 0.3, 0.1],
+                rangeX: 50,
+                
+                duration: { min: 220, max: 350 }
+            });
+            
+        });
+    </script>
+    <section id="letter">
+        Dear everybody,<br /><br />
 
-    <div id="header-wrapper">
-        <div id="clock-wrapper">
-            <div id="clock" class="flip-clock-wrapper"></div>
-        </div>
-        <!--<span><em>&#xF015;</em> HOME</span>
-        <span><em>&#xF108;</em> PROJECTs</span>-->
-    </div>
-    <div id="main-wrapper" class="index">
-        <div class="images">
-            <img class="photo" src="myPhoto.jpg" alt="My Photo" />
-            <img class="logo" src="logo.png" alt="My Logo" />
-        </div>
-        <h1>Max Cattaneo</h1>
-        <h5>Front end developer</h5>
-        <br/>
-        <p class="links">
-            <a class="fb" target="_blank" href="https://www.facebook.com/massimiliano.cattaneo.756">&#xF082;</a>
-            <a class="tw" target="_blank" href="https://twitter.com/massicattaneo">&#xF081;</a>
-            <a class="gp" target="_blank" href="https://plus.google.com/u/0/103474089234013382832/about">&#xF0D4;</a>
-            <a class="gh" target="_blank" href="#">&#xF09B;</a>
-        </p>
-        <hr/>
-        <div class="evidence">
-            <h2>My Last GitHub Project:</h2>
-            <a target="_blank" href="https://github.com/massicattaneo/jquery-html-form-elements-plugin">Jquery Redesign form elements</a>
-            <br />
-            <br/>
-            <span>
-                This project, based on 
-                <a href="http://jquery.com/">Jquery</a>
-                and
-                <a href="https://code.google.com/p/base2/">base2.js</a>
-                javascript library, provide a series of Jquery plugin
-                that permit to redesign 
-                and implement new actions on standard form elements.
-                <a href="#">More ...</a>
-            </span>
-        </div>
-    </div>
+        I thank you in advance to have the patience for reading all my letter.<br /><br />
+
+        Three weeks ago I decide to take an important decision in my life: leave Lottonetwork and withdraw the offer for moving to Madrid.
+        This was for both private and professional reasons and it was not an easy choice for me because I enjoy so much working in this company. 
+        I had the chance for growing professionally and personally and I want to thanks everybody that I met during this experience. 
+        For sure I want to thanks Hans and Helmut … I had the time for speaking directly with them and I always appreciate the way they 
+        share their happiness with their employers.<br /><br />
+
+        <em>Then the Italian Team</em>: Alessandra(before) and Egidio; Donato (before), Alessandro, Simone, Maurizio, Gabriele, Francesco, Luca, Mauro, Giulio e Carla.<br /><br />
+        
+        <em>The English team</em>: Chris, Julian, Zoe, Soraia, Rebecca, Tom, Michael, Artish, Molly, Colleen and all the other guys.<br /><br />
+
+        <em>The MyLotto24 team</em>: Neil, Blerina, Egidio (again? ;) ) and the other ones.<br /><br />
+
+        <em>The Spanish team</em>, starting from the People that I met only for a bit: Zurine, Pepe, Raphael, Maria, Javier and the other ones that will share a lot of time with my Italian collegues.<br /><br />
+
+        And finally all <em>the German teams</em>: again Donato and Renate plus everyone else.<br /><br />
+
+        I feel a little sick saying goodbye to everybody. Good luck to you.<br /><br />
+
+        Bye bye<br /><br /><br /><br />
+
+        <span style="position: relative; display: block; left: 101px;">Massimiliano Cattaneo</span><br /><br />
+    </section>
 </body>
 </html>

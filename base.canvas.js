@@ -115,10 +115,8 @@ var canvasWaves = canvas.extend({
         this.ctx.globalAlpha = 1;
     },
     initWaves: function () {        
-        var i = this.options.pointsY.length+2;
-        var arr = [];
-        arr.push(0); arr = arr.concat(this.options.pointsY); arr.push(50);
-        var spacing = (this.cw + (this.options.rangeX * 2)) / (this.options.pointsY.length - 1);
+        var i = this.options.pointsY.length;        
+        var spacing = (this.cw + (this.options.rangeX * 2)) / (this.options.pointsY.length - 3);
         while (i--) {
             //console.log(i, arr[i]);
             var l = (typeof this.options.levels != "undefined") ? this.options.levels[i] : this.options.level;
@@ -126,7 +124,7 @@ var canvasWaves = canvas.extend({
                 x: (spacing * (i - 1)) - this.options.rangeX,
                 y: this.ch - (this.ch * l),
                 rangeX: this.options.rangeX,
-                rangeY: arr[i],
+                rangeY: this.options.pointsY[i],
                 durationMin: this.options.duration.min,
                 durationMax: this.options.duration.max,
             }));
@@ -141,11 +139,6 @@ var canvasWaves = canvas.extend({
         //this.renderPoints();
     }
 });
-
-/* 
-JQUERY OBJECT: canvas
-Properties: 
-*/
 
 $(function () {
     $.fn.canvasWaves = function (/* (object) properties will be merge into jQuery component settings */ options) {

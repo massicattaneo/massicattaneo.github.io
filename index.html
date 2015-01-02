@@ -11,15 +11,28 @@
     <script src="core.js"></script>
     <script src="jquery.base.forms-min.js"></script>
     <script src="base.canvas.js"></script>
+    <script src="fireworks.js"></script>
 
     <style>
         body {padding: 0; margin: 0; color: #434343;}
         a {color: #434343;}
-        canvas {position: absolute; width:100%;height:200px}
-        .top {top:0px}
-        .bottom {top:150px}
+        .waves {position: absolute; width:100%;height:200px; display:none;}        
+        #canvas2 {display:block;left:0;position:absolute;top:0;z-index:20; width:100%; height: 300px;}
+        .top {top:175px}
+        .bottom {top:175px}
         #letter {
             position: relative; top:300px; width: 960px; margin: 0 auto; font-family: Arial; padding: 0 15px;
+            opacity: 0;
+        }
+        #zeal {opacity:0; position: absolute;color: #fff;font-family: 'Chivo', sans-serif;
+               font-weight: bold;font-size: 69px;top: 133px;}
+        #info {
+            width:501px; margin: 0 auto; position: relative; top:180px;font-family: 'Chivo', sans-serif;
+            text-align: center;
+        }
+        #play {width:101px; margin: 0 auto; position: relative; top:200px;font-family: 'Chivo', sans-serif;
+               font-weight: bold;font-size: 20px; background: #2599B2; color: #fff; text-align: center;
+               border-radius: 6px; padding: 6px; cursor: pointer;
         }
         img {
             width: 240px;
@@ -33,76 +46,99 @@ box-shadow: 6px 6px 11px -6px #444444;
     </style>
 </head>
 <body>
+    <iframe width="420" height="0" src="//www.youtube.com/embed/Qtb11P1FWnc?autoplay=1" frameborder="0" allowfullscreen></iframe>
     <!--############ ANIMATED WAVES ############-->
-    <canvas id="wave1" class="top"></canvas>
-    <canvas id="wave2" class="bottom"></canvas>
-    <canvas id="wave3" class="top"></canvas>
-    <canvas id="wave4" class="bottom"></canvas>
-    <canvas id="wave5" class="top"></canvas>
-    <canvas id="wave6" class="bottom"></canvas>
-    <div style="position: absolute;color: #fff;font-family: 'Chivo', sans-serif;font-weight: bold;font-size: 69px;top: 133px;left: 56px;">ZEAL</div>
+    <canvas id="wave1" class="waves top"></canvas>
+    <canvas id="wave2" class="waves bottom"></canvas>
+    <canvas id="wave3" class="waves top"></canvas>
+    <canvas id="wave4" class="waves bottom"></canvas>
+    <canvas id="wave5" class="waves top"></canvas>
+    <canvas id="wave6" class="waves bottom"></canvas>
+    <div id="zeal">ZEAL</div>
     <script>
         $(document).ready(function () {
+            $(".waves").show().height(0);
+            $("#zeal").css("left", - 200);
+            
             $("#wave1").canvasWaves({
                 fillColor: "#A4DFE7",
                 strokeColor: "#A4DFE7",                
-                pointsY: [0, 10, 50, 90],
-                levels: [0.3, 0.3, 0.3, 0.5, 0.9, 0.9],
+                pointsY: [0, 0, 10, 50, 90, 50],
+                levels: [0.3, 0.3, 0.3, 0.5, 0.8, 0.8],
                 rangeX: 50,
                 
-                duration: { min: 120, max: 250 },
+                duration: { min: 60, max: 250 },
                 topAlign: false
             });
             $("#wave2").canvasWaves({
                 fillColor: "#2599B2",
                 strokeColor: "#2599B2",
-                pointsY: [0, 10, 50, 90],
-                levels: [0.7, 0.7, 0.7, 0.5, 0.3, 0.1],
+                pointsY: [0, 0, 10, 50, 90, 50],
+                levels: [0.7, 0.7, 0.7, 0.5, 0.3, 0.2],
                 rangeX: 50,
                 
-                duration: { min: 200, max: 350 }
+                duration: { min: 60, max: 350 }
             });
             $("#wave3").canvasWaves({
                 fillColor: "#237D9F",
                 strokeColor: "#237D9F",
-                pointsY: [0, 10, 50, 90],
-                levels: [0.3, 0.3, 0.3, 0.5, 0.9, 0.9],
+                pointsY: [0, 0, 10, 50, 90, 50],
+                levels: [0.3, 0.3, 0.3, 0.5, 0.8, 0.8],
                 rangeX: 50,
                 
-                duration: { min: 120, max: 250 },
+                duration: { min: 60, max: 250 },
                 topAlign: false
             });
             $("#wave4").canvasWaves({
                 fillColor: "#2599B2",
                 strokeColor: "#2599B2",
-                pointsY: [0, 10, 50, 90],
-                levels: [0.7, 0.7, 0.7, 0.5, 0.3, 0.1],
+                pointsY: [0, 0, 10, 50, 90, 50],
+                levels: [0.7, 0.7, 0.7, 0.5, 0.3, 0.2],
                 rangeX: 50,
                 
-                duration: { min: 200, max: 350 }
+                duration: { min: 60, max: 350 }
             });
             $("#wave5").canvasWaves({
                 fillColor: "#237D9F",
                 strokeColor: "#237D9F",
-                pointsY: [0, 10, 50, 90],
-                levels: [0.3, 0.3, 0.3, 0.5, 0.9, 0.9],
+                pointsY: [0, 0, 10, 50, 90, 50],
+                levels: [0.3, 0.3, 0.3, 0.5, 0.8, 0.8],
                 rangeX: 50,
                 
-                duration: { min: 120, max: 250 },
+                duration: { min: 60, max: 250 },
                 topAlign: false
             });
             $("#wave6").canvasWaves({
                 fillColor: "#2599B2",
                 strokeColor: "#2599B2",
-                pointsY: [0, 10, 50, 90],
-                levels: [0.7, 0.7, 0.7, 0.5, 0.3, 0.1],
+                pointsY: [0, 0, 10, 50, 90, 50],
+                levels: [0.7, 0.7, 0.7, 0.5, 0.3, 0.2],
                 rangeX: 50,
                 
-                duration: { min: 220, max: 350 }
+                duration: { min: 60, max: 350 }
+            });
+
+            $("#play").click(function () {
+                $("#info, #play").fadeOut(1100);
+                setTimeout(function () {
+                    var fworks = new Fireworks();
+                    setTimeout(function () {
+                        $(".waves.top").animate({ height: 200, top: 0 }, 3000);
+                        $(".waves.bottom").animate({ height: 200, top: 150 }, 3000);
+                    }, 2000);
+                    setTimeout(function () {
+                        $("#zeal").animate({ opacity: 1, left: 56 }, 2000);
+                    }, 9000);
+                    setTimeout(function () {
+                        $("#letter").animate({ opacity: 1 }, 2000);
+                    }, 13000);
+                }, 2000)
             });
             
         });
     </script>
+    <div id="info">Play with Chrome in fullscreen (F11) for better rendering. <br/>Listen to sound before click play...</div>
+    <div id="play">PLAY</div>
     <section id="letter">
         Dear everybody,<br /><br />
         
@@ -139,7 +175,7 @@ box-shadow: 6px 6px 11px -6px #444444;
             (+39) 348 7304594
         </span><br /><br />
     
-        <iframe width="420" height="29" src="//www.youtube.com/embed/-gCgA5Encsk?rel=0&amp;autoplay=1" frameborder="0" allowfullscreen></iframe>
+        
     </section>
     
 </body>

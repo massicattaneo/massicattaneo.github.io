@@ -20,7 +20,7 @@
             self.partSpeed = 5;
             self.partSpeedVariance = 15;
             self.partWind = 60;
-            self.partFriction = 60;
+            self.partFriction = 40;
             self.partGravity = 1;
             self.hueMin = 150;
             self.hueMax = 150;
@@ -37,8 +37,6 @@
             self.ctx.lineCap = 'round';
             self.ctx.lineJoin = 'round';
             self.lineWidth = 1;
-            self.bindEvents();
-            self.canvasLoop();
 
             self.canvas.onselectstart = function () {
                 return false;
@@ -250,19 +248,7 @@
                 }
             };
         };
-
-        self.bindEvents = function () {
-           
-            var count = tot = 25;
-            var time = function () {
-                self.currentHue = 150;
-                self.createFireworks(0, 175, (self.cw / tot) * (tot - count), 175);
-                if (--count==0) clearInterval(timeInt);
-            };
-            var timeInt = setInterval(time, 20);
-
-        }
-
+        
         self.clear = function () {
             self.particles = [];
             self.fireworks = [];
@@ -281,6 +267,30 @@
 
         };
 
-        self.init();
+        self.playFromLeft = function () {
+            
+            var count = tot = 25;
+            var time = function () {
+                self.currentHue = 150;
+                self.createFireworks(0, 175, (self.cw / tot) * (tot - count), 175);
+                if (--count == 0) clearInterval(timeInt);
+            };
+            var timeInt = setInterval(time, 20);
+
+            self.canvasLoop();
+        }
+
+        self.playFromRight = function () {           
+
+            var count = tot = 25;
+            var time = function () {
+                self.currentHue = 150;
+                self.createFireworks(self.cw, 175, (self.cw / tot) * (count), 175);
+                if (--count == 0) clearInterval(timeInt);
+            };
+            var timeInt = setInterval(time, 20);
+
+            self.canvasLoop();
+        }
 
     }

@@ -125,9 +125,9 @@ box-shadow: 6px 6px 11px -6px #444444;
             });
 
             var magic = document.getElementById("magic");
-            magic.currentTime = 35;
+            
             magic.oncanplaythrough = function () {
-                $("#play").show();
+                $("#play").show(); magic.currentTime = 35;
             }
             $("#play").click(function () {
                  magic.play();

@@ -1,236 +1,42 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Goodbye</title>
-    <link href="forms.css" rel="stylesheet" />
-    <link href="forms-clock.css" rel="stylesheet" />
-    <link href='http://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
-
-    <script src="jQuery-min-1.10.2.js"></script>
-    <script src="base2.js"></script>
-    <script src="core.js"></script>
-    <script src="jquery.base.forms-min.js"></script>
-    <script src="base.canvas.js"></script>
-    <script src="fireworks.js"></script>
-    <script src="flippingWords.js"></script>
-
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Indovina Chi</title>
+    <script src="templates/templates.js"></script>
+    <script src="bower_components/core/build/core.min.js"></script>
+    <link rel="stylesheet" href="templates/components.css"/>
+    <script src="templates/components.js"></script>
     <style>
-        body {padding: 0; margin: 0; color: #434343;}
-        a {color: #434343;}
-        .waves {position: absolute; width:100%;height:200px; display:none;}        
-        #canvas2 {display:block;left:0;position:absolute;top:0;z-index:20; width:100%; height: 300px;}
-        .top {top:175px}
-        .bottom {top:175px}
-        .wrap-countDown {top: -43px; position: relative;}
-        #letter {
-            position: relative; top:300px; width: 960px; margin: 0 auto; font-family: Arial; padding: 0 15px;
-            opacity: 0;
-        }
-        #wrapper {width: 100%; height: 0px; position:absolute; top:175px; background: #237D9F; overflow:hidden; text-align: center; }
-        #zeal {opacity:0; position: absolute;color: #fff;font-family: 'Chivo', sans-serif;
-               font-weight: bold;font-size: 69px;top: 133px;}
-        #zeal span {font-size: 11px;}
-        #info {
-            width:501px; margin: 0 auto; position: relative; top:180px;font-family: Arial;
+        body {
+            font-family: Arial;
+            font-size: 14px;
+            margin: 6px;
             text-align: center;
         }
-        #play {width:101px; margin: 0 auto; position: relative; top:200px;font-family: 'Chivo', sans-serif;
-               font-weight: bold;font-size: 20px; background: #2599B2; color: #fff; text-align: center;
-               border-radius: 6px; padding: 6px; cursor: pointer; display: none;
-        }
-        img {
-            width: 240px;
-float: right;
-margin: 20px 0 20px 20px;
-border-radius: 6px;
-height: 160px;
--webkit-box-shadow: 6px 6px 11px -6px #444444;
-box-shadow: 6px 6px 11px -6px #444444;
-        }
-        
     </style>
 </head>
 <body>
-    <audio src="gitHubWebSite/js/magic.mp3" preload="auto" id="magic"></audio>
-    <!--############ ANIMATED WAVES ############-->
-    <canvas id="wave1" class="waves top"></canvas>
-    <canvas id="wave2" class="waves bottom"></canvas>
-    <canvas id="wave3" class="waves top"></canvas>
-    <canvas id="wave4" class="waves bottom"></canvas>
-    <canvas id="wave5" class="waves top"></canvas>
-    <canvas id="wave6" class="waves bottom"></canvas>
-    <div id="zeal">Thanks<span>ZEAL</span></div>
-    <script>
-        $(document).ready(function () {
-            $(".waves").show().height(0);
-            $("#zeal").css("left", - 200);
-            
-            $("#wave1").canvasWaves({
-                fillColor: "#A4DFE7",
-                strokeColor: "#A4DFE7",                
-                pointsY: [0, 0, 10, 50, 90, 50],
-                levels: [0.3, 0.3, 0.3, 0.5, 0.8, 0.8],
-                rangeX: 50,
-                
-                duration: { min: 60, max: 250 },
-                topAlign: false
-            });
-            $("#wave2").canvasWaves({
-                fillColor: "#2599B2",
-                strokeColor: "#2599B2",
-                pointsY: [0, 0, 10, 50, 90, 50],
-                levels: [0.7, 0.7, 0.7, 0.5, 0.3, 0.2],
-                rangeX: 50,
-                
-                duration: { min: 60, max: 350 }
-            });
-            $("#wave3").canvasWaves({
-                fillColor: "#237D9F",
-                strokeColor: "#237D9F",
-                pointsY: [0, 0, 10, 50, 90, 50],
-                levels: [0.3, 0.3, 0.3, 0.5, 0.8, 0.8],
-                rangeX: 50,
-                
-                duration: { min: 60, max: 250 },
-                topAlign: false
-            });
-            $("#wave4").canvasWaves({
-                fillColor: "#2599B2",
-                strokeColor: "#2599B2",
-                pointsY: [0, 0, 10, 50, 90, 50],
-                levels: [0.7, 0.7, 0.7, 0.5, 0.3, 0.2],
-                rangeX: 50,
-                
-                duration: { min: 60, max: 350 }
-            });
-            $("#wave5").canvasWaves({
-                fillColor: "#237D9F",
-                strokeColor: "#237D9F",
-                pointsY: [0, 0, 10, 50, 90, 50],
-                levels: [0.3, 0.3, 0.3, 0.5, 0.8, 0.8],
-                rangeX: 50,
-                
-                duration: { min: 60, max: 250 },
-                topAlign: false
-            });
-            $("#wave6").canvasWaves({
-                fillColor: "#2599B2",
-                strokeColor: "#2599B2",
-                pointsY: [0, 0, 10, 50, 90, 50],
-                levels: [0.7, 0.7, 0.7, 0.5, 0.3, 0.2],
-                rangeX: 50,
-                
-                duration: { min: 60, max: 350 }
-            });
-
-            var magic = document.getElementById("magic");
-            
-            magic.oncanplaythrough = function () {
-                //$("#play").show(); magic.currentTime = 35;
-            }
-            $("#play").click(function () {
-                 //magic.play();
-                $("#info, #play").fadeOut(1100);
-                setTimeout(function () {
-                    var fworks = new Fireworks();
-                    fworks.init();
-                    fworks.playFromRight();
-                    fworks.playFromLeft();
-                    $("#wrapper").css({ left: $(window).innerWidth() / 2, width: 0 });
-                    setTimeout(function () {
-                        $("#wrapper").animate({ height: 2, top: 173, left: 0, width: $(window).innerWidth() }, 400);
-                        setTimeout(function () { $("#wrapper").animate({ height: 86, top: 132 }, 1600); }, 400);
-                        $(".wrap-countDown").animate({ top: 0 }, 2000);
-                    }, 2000);
-
-                    var flipper = $("#flipper").flippingWords().data("flippingWords");
-                    setTimeout(function () {
-                        for (var i = 1; i < 5500; i += 500)
-                            setTimeout(function () { flipper.advanceWord(); }, i);
-                    }, 8000);
-                    setTimeout(function () {
-                        for (var i = 1; i < 5000; i += 500)
-                            setTimeout(function () { flipper.advanceWord(); }, i);
-                    }, 18000);
-                    setTimeout(function () {
-                        flipper.advanceWord();
-                    }, 28000);
-                    setTimeout(function () {
-                        for (var i = 1; i < 3000; i += 500)
-                            setTimeout(function () { flipper.advanceWord(); }, i);
-                    }, 33000);
-                    setTimeout(function () {
-                        flipper.advanceWord();
-                    }, 42000);
-                    setTimeout(function () {
-                        $("#wrapper").animate({ height: 0, top: 175 }, 2000);
-                        $(".wrap-countDown").animate({ top: -43 }, 2000);
-                    }, 47000);
-
-                    setTimeout(function () {
-                        fworks.playFromLeft();
-                    }, 49000);
-                    
-                    setTimeout(function () {
-                        $(".waves.top").animate({ height: 200, top: 0 }, 3000);
-                        $(".waves.bottom").animate({ height: 200, top: 150 }, 3000);
-                    }, 51000);
-                    setTimeout(function () {
-                        $("#zeal").animate({ opacity: 1, left: 56 }, 2000);
-                    }, 58000);
-                    setTimeout(function () {
-                        $("#letter").animate({ opacity: 1 }, 2000);
-                    }, 62000);
-                }, 11000)
-            });
-            
-        });
-    </script>
-    <div id="info">Play with <strong>Chrome</strong> in fullscreen (F11) for better rendering. <br/>Turn on sound before click play...</div>
-    <div id="play">PLAY</div>
-    <div id="wrapper">
-        <div id="flipper"></div>
+    <div data-component="board" id="myBoard">
+        <cards><label>Flavio</label></cards>
+        <cards><label>Chiara</label></cards>
+        <cards><label>Stefania M.</label></cards>
+        <cards><label>Fabio</label></cards>
+        <cards><label>Viviana</label></cards>
+        <cards><label>Massimiliano</label></cards>
+        <cards><label>Giovanni</label></cards>
+        <cards><label>Cacao</label></cards>
+        <cards><label>Secco</label></cards>
+        <cards><label>Stefania R.</label></cards>
+        <cards><label>Samuele</label></cards>
+        <cards><label>Claudio</label></cards>
+        <cards><label>Serena</label></cards>
+        <cards><label>Donata</label></cards>
+        <cards><label>Laura</label></cards>
+        <cards><label>Pg</label></cards>
     </div>
-    
-    <section id="letter">
-        Dear everybody,<br /><br />
-        
-        <img src="myPhoto.jpg" />
-        
-        I thank you in advance to have the patience for reading all my letter.<br /><br />
-
-        Three weeks ago I decide to take an important decision in my life: leave Lottonetwork and withdraw the offer for moving to Madrid.
-        This was for both private and professional reasons and it was not an easy choice for me because I enjoyed so much working in this company. 
-        I had the chance for growing professionally and personally and I want to thanks everybody that I met during this experience. 
-        <br /><br />
-        For sure I want to thanks Hans and Helmut … I had the time for speaking directly with them and I always appreciated the way they 
-        shared their happiness with their employees.<br /><br />
-
-        <em>Then the Italian Team</em>: Alessandra(before) and Egidio; Donato (before), Alessandro, Simone, Maurizio, Gabriele, Francesco, Luca, Mauro, Giulio e Carla.<br /><br />
-        
-        <em>The English team</em>: Chris, Julian, Zoe, Soraia, Rebecca, Tom, Michael, Artish, Molly, Colleen and all the other guys.<br /><br />
-
-        <em>The MyLotto24 team</em>: Neil, Blerina, Egidio (again? ;-) ) and the other ones.<br /><br />
-
-        <em>The Spanish team</em>, starting from the People that I met only for a bit: Zurine, Pepe, Raphael, Maria, Javier and the other ones that will share a lot of time with my Italian collegues.<br /><br />
-
-        And finally all <em>the German team</em>: again Donato and Renate plus everyone else.<br /><br />
-
-        I feel a little sick saying goodbye to everybody. Good luck to all of you.<br /><br />
-
-        Bye bye<br /><br /><br /><br />
-
-        <span style="position: relative; display: inline-block; left: 101px; color: #297996;font-weight: bold;">
-            Massimiliano Cattaneo
-        </span><br/>
-        <span style="position: relative; display: inline-block; left: 101px; font-size: 76%;">
-            <a href="mailto:massi.cattaneo.it@gmail.com">massi.cattaneo.it@gmail.com</a> <br/>
-            (+39) 348 7304594
-        </span><br /><br />
-    
-        <!--<iframe width="420" height="29" src="//www.youtube.com/embed/-gCgA5Encsk?rel=0&amp;autoplay=1" frameborder="0" allowfullscreen></iframe>-->
-    </section>
-    
+    <script>
+        var myBoard = new Board(document.getElementById('myBoard'));
+    </script>
 </body>
 </html>

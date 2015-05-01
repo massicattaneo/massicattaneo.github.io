@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Indovina Chi</title>
     <script src="templates/templates.js"></script>
-    <script src="core.min.js"></script>
+    <script src="bower_components/core/build/core.min.js"></script>
     <link rel="stylesheet" href="templates/components.css"/>
     <script src="templates/components.js"></script>
     <style>
@@ -17,27 +17,34 @@
     </style>
 </head>
 <body>
-    <h1>INDOVINA CHI</h1>
-    <div data-component="board" id="myBoard">
-        <cards><label>Flavio</label></cards>
-        <cards><label>Chiara</label></cards>
-        <cards><label>Stefania M.</label></cards>
-        <cards><label>Fabio</label></cards>
-        <cards><label>Viviana</label></cards>
-        <cards><label>Massimiliano</label></cards>
-        <cards><label>Giovanni</label></cards>
-        <cards><label>Cacao</label></cards>
-        <cards><label>Secco</label></cards>
-        <cards><label>Stefania R.</label></cards>
-        <cards><label>Samuele</label></cards>
-        <cards><label>Claudio</label></cards>
-        <cards><label>Serena</label></cards>
-        <cards><label>Donata</label></cards>
-        <cards><label>Laura</label></cards>
-        <cards><label>Pg</label></cards>
-    </div>
-    <script>
-        var myBoard = new Board(document.getElementById('myBoard'));
-    </script>
+<div data-component="board" id="myBoard">
+    <cards><label>Flavio</label></cards>
+    <cards><label>Chiara</label></cards>
+    <cards><label>Stefania M.</label></cards>
+    <cards><label>Fabio</label></cards>
+    <cards><label>Viviana</label></cards>
+    <cards><label>Massimiliano</label></cards>
+    <cards><label>Giovanni</label></cards>
+    <cards><label>Cacao</label></cards>
+    <cards><label>Secco</label></cards>
+    <cards><label>Stefania R.</label></cards>
+    <cards><label>Samuele</label></cards>
+    <cards><label>Claudio</label></cards>
+    <cards><label>Serena</label></cards>
+    <cards><label>Donata</label></cards>
+    <cards><label>Laura</label></cards>
+    <cards><label>Pg</label></cards>
+</div>
+<script>
+    function setSelected(obj) {
+        var selected = obj.getElementsByTagName('div')[0];
+        if (selected.className === 'selected') {
+            selected.className = ''
+        } else {
+            selected.className = 'selected'
+        }
+    }
+    var myBoard = new Board(document.getElementById('myBoard'));
+</script>
 </body>
 </html>

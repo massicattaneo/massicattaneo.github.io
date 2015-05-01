@@ -1,0 +1,52 @@
+.components.board {
+  background-color: #BE0502;
+  display: inline-block;
+  width: 1010px; }
+  .components.board ul {
+    list-style: none;
+    margin: 0;
+    padding: 0px; }
+
+.components.card {
+  cursor: pointer;
+  float: left;
+  margin: 7px;
+  padding: 4px 0;
+  width: 100px;
+  height: 160px;
+  border: 6px solid #ffffff;
+  border-top-width: 20px;
+  border-bottom-width: 20px;
+  border-radius: 2px;
+  background: #fff;
+  text-align: center;
+  position: relative;
+  color: #fff;
+  background: #cc1608;
+  background: -moz-linear-gradient(top, #cc1608 0%, #cc1608 24%, #ffffff 48%, #cc1608 77%, #cc1608 92%, #ffffff 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #cc1608), color-stop(24%, #cc1608), color-stop(48%, #ffffff), color-stop(77%, #cc1608), color-stop(92%, #cc1608), color-stop(100%, #ffffff));
+  background: -webkit-linear-gradient(top, #cc1608 0%, #cc1608 24%, #ffffff 48%, #cc1608 77%, #cc1608 92%, #ffffff 100%);
+  background: -o-linear-gradient(top, #cc1608 0%, #cc1608 24%, #ffffff 48%, #cc1608 77%, #cc1608 92%, #ffffff 100%);
+  background: -ms-linear-gradient(top, #cc1608 0%, #cc1608 24%, #ffffff 48%, #cc1608 77%, #cc1608 92%, #ffffff 100%);
+  background: linear-gradient(to bottom, #cc1608 0%, #cc1608 24%, #ffffff 48%, #cc1608 77%, #cc1608 92%, #ffffff 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc1608', endColorstr='#ffffff',GradientType=0 ); }
+  .components.card img {
+    width: 95%; }
+  .components.card span {
+    text-align: center;
+    display: block;
+    width: 100%;
+    position: absolute;
+    bottom: 15px; }
+  .components.card div {
+    color: #cc1608;
+    position: absolute;
+    top: 0;
+    text-align: center;
+    width: 100%;
+    font-weight: bold;
+    font-size: 148px;
+    opacity: 0; }
+  .components.card div.selected {
+    opacity: 0.8;
+    transition: opacity 1s; }

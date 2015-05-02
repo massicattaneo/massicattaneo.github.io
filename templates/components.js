@@ -1,12 +1,20 @@
-components.create('card', function () {
-    var c = Class.extend(Component).create({
-
+components
+    .imports('Component')
+    .create('Card', function (Component) {
+        var Card = Class.extend(Component).create({
+            constructor: function (htmlNode) {
+                this.super(htmlNode);
+            }
+        });
+        return Card;
     });
-
-    return c;
-});
-    var Board = Class.extend(Component).create({
-        constructor: function (htmlNode) {
-            this.super(htmlNode);
-        }
+components
+    .imports('Component')
+    .create('Board', function (Component) {
+        var Board = Class.extend(Component).create({
+            constructor: function (htmlNode) {
+                this.super(htmlNode);
+            }
+        });
+        return Board;
     });

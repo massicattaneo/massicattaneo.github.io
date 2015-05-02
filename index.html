@@ -17,7 +17,8 @@
     </style>
 </head>
 <body>
-<div data-component="board" id="myBoard">
+<h1>INDOVINA CHI</h1>
+<div data-component="board" id="redBoard">
     <cards><label>Flavio</label></cards>
     <cards><label>Chiara</label></cards>
     <cards><label>Stefania M.</label></cards>
@@ -35,6 +36,7 @@
     <cards><label>Laura</label></cards>
     <cards><label>Pg</label></cards>
 </div>
+
 <script>
     function setSelected(obj) {
         var selected = obj.getElementsByTagName('div')[0];
@@ -44,7 +46,12 @@
             selected.className = 'selected'
         }
     }
-    var myBoard = new Board(document.getElementById('myBoard'));
+    new Promises()
+            .imports('Board', components)
+            .onDone(function (Board) {
+                var redBoard = new Board(document.getElementById('redBoard'));
+                var blueBoard = new Board(document.getElementById('blueBoard'));
+            });
 </script>
 </body>
 </html>

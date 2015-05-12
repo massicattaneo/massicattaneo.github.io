@@ -1,0 +1,8 @@
+<li>
+    <div data-item="todo" data-listener="drag:mousedown">
+        <input type="checkbox" data-listener="toggle:click" />
+        <label data-item="label" data-bind="value:label" data-listener="edit:dblclick"></label>
+        <input type="text" data-item="edit" data-listener="stopEdit:change,blur"/>
+        <button data-listener="remove:click">X</button>
+    </div>
+</li>

@@ -1,0 +1,136 @@
+.components.card {
+    cursor: pointer;
+    list-style: none;
+    float: left;
+    margin: 7px;
+    padding: 0;
+    width: 100px;
+    height: 160px;
+    border: 6px solid #ffffff;
+    border-top-width: 20px;
+    border-bottom-width: 20px;
+    border-radius: 2px;
+    background: #939393;
+    text-align: center;
+    position: relative;
+    color: #fff;
+
+    -webkit-perspective: 800px;
+    -moz-perspective: 800px;
+    -o-perspective: 800px;
+    perspective: 800px;
+
+  >div {
+
+    >div {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      -webkit-transition: -webkit-transform 1s;
+      -moz-transition: -moz-transform 1s;
+      -o-transition: -o-transform 1s;
+      transition: transform 1s;
+      -webkit-transform-style: preserve-3d;
+      -moz-transform-style: preserve-3d;
+      -o-transform-style: preserve-3d;
+      transform-style: preserve-3d;
+    }
+
+    >div.hidden {
+      -webkit-transform: rotateY( 180deg );
+      -moz-transform: rotateY( 180deg );
+      -o-transform: rotateY( 180deg );
+      transform: rotateY( 180deg );
+    }
+
+    figure {
+      display: block;
+      z-index: 1;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+      color: white;
+      text-align: center;
+      font-weight: bold;
+      position: absolute;
+      -webkit-backface-visibility: hidden;
+      -moz-backface-visibility: hidden;
+      -o-backface-visibility: hidden;
+      backface-visibility: hidden;
+      border: 2px inset #ddd;
+      width: 96px;
+
+      img {
+        width: 114px;
+        position: relative;
+        left: -8px;
+        top: -22px;
+      }
+      span {
+        text-align: center;
+        display: block;
+        width: 100%;
+        position: absolute;
+        bottom: 44px;
+        z-index: 2;
+        text-transform: capitalize;
+      }
+    }
+
+    figure.back {
+      background: #444;
+      -webkit-transform: rotateY( 180deg );
+      -moz-transform: rotateY( 180deg );
+      -o-transform: rotateY( 180deg );
+      transform: rotateY( 180deg );
+
+      div {
+        font-size: 119px;
+        text-align: center;
+        line-height: 159px;
+        color: #444;
+        z-index: 2;
+        position: relative;
+
+        text-shadow: 0 1px 0 #ccc,
+        0 2px 0 #c9c9c9,
+        0 3px 0 #bbb,
+        0 4px 0 #b9b9b9,
+        0 5px 0 #aaa,
+        0 6px 1px rgba(0,0,0,.1),
+        0 0 5px rgba(0,0,0,.1),
+        0 1px 3px rgba(0,0,0,.3),
+        0 3px 5px rgba(0,0,0,.2),
+        0 5px 10px rgba(0,0,0,.25),
+        0 10px 10px rgba(0,0,0,.2),
+        0 20px 20px rgba(0,0,0,.15);
+      }
+    }
+  }
+
+}
+
+#redBoard .components.card {
+  >div {
+    figure {
+      background: #cc1608;
+      background: -moz-linear-gradient(top, #cc1608 0%, #cc1608 24%, #ffffff 48%, #cc1608 77%, #cc1608 92%, #ffffff 100%);
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#cc1608), color-stop(24%,#cc1608), color-stop(48%,#ffffff), color-stop(77%,#cc1608), color-stop(92%,#cc1608), color-stop(100%,#ffffff));
+      background: -webkit-linear-gradient(top, #cc1608 0%,#cc1608 24%,#ffffff 48%,#cc1608 77%,#cc1608 92%,#ffffff 100%);
+      background: -o-linear-gradient(top, #cc1608 0%,#cc1608 24%,#ffffff 48%,#cc1608 77%,#cc1608 92%,#ffffff 100%);
+      background: -ms-linear-gradient(top, #cc1608 0%,#cc1608 24%,#ffffff 48%,#cc1608 77%,#cc1608 92%,#ffffff 100%);
+      background: linear-gradient(to bottom, #cc1608 0%,#cc1608 24%,#ffffff 48%,#cc1608 77%,#cc1608 92%,#ffffff 100%);
+    }
+    figure.back {
+      background: #990502;
+      div {
+        color: #A02222;
+      }
+    }
+  }
+}
+
+#redBoard.components.board > div {
+  background: #cc1608;
+}
+

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Indovina Chi</title>
+    <script src="templates/templates.js"></script>
+    <script src="../core/build/core.min.js"></script>
+    <link rel="stylesheet" href="templates/components.css"/>
+    <script src="templates/components.js"></script>
+    <style>
+        body {
+            font-family: Arial;
+            font-size: 14px;
+            margin: 6px;
+            text-align: center;
+            -webkit-perspective: 2000px;
+            -moz-perspective: 2000px;
+            -o-perspective: 2000px;
+            perspective: 2000px;
+        }
+        #flip {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            -webkit-transition: -webkit-transform 1s;
+            -moz-transition: -moz-transform 1s;
+            -o-transition: -o-transform 1s;
+            transition: transform 1s;
+            -webkit-transform-style: preserve-3d;
+            -moz-transform-style: preserve-3d;
+            -o-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+        }
+
+        #flip > div {
+            display: block;
+            z-index: 1;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            position: absolute;
+            -webkit-backface-visibility: hidden;
+            -moz-backface-visibility: hidden;
+            -o-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+        #flip > div.back {
+            -webkit-transform: rotateY( 180deg );-moz-transform: rotateY( 180deg );-o-transform: rotateY( 180deg );transform: rotateY( 180deg );
+        }
+        #flip.hidden {
+            -webkit-transform: rotateY( 180deg );
+            -moz-transform: rotateY( 180deg );
+            -o-transform: rotateY( 180deg );
+            transform: rotateY( 180deg );
+        }
+
+    </style>
+    <script>
+        var data = {
+            cards: [
+                {fullname: 'Alex', imagepath: 'images/alex.png'}, {fullname: 'Alfred', imagepath: 'images/alfred.png'},
+                {fullname: 'Anita', imagepath: 'images/anita.png'}, {fullname: 'Anne', imagepath: 'images/anne.png'},
+                {fullname: 'Bernard', imagepath: 'images/bernard.png'}, {fullname: 'Bill', imagepath: 'images/bill.png'},
+                {fullname: 'Charles', imagepath: 'images/charles.png'}, {fullname: 'Claire', imagepath: 'images/claire.png'},
+                {fullname: 'David', imagepath: 'images/david.png'}, {fullname: 'Eric', imagepath: 'images/eric.png'},
+                {fullname: 'Frans', imagepath: 'images/frans.png'}, {fullname: 'George', imagepath: 'images/george.png'},
+                {fullname: 'Herman', imagepath: 'images/herman.png'}, {fullname: 'Joe', imagepath: 'images/joe.png'},
+                {fullname: 'Maria', imagepath: 'images/maria.png'}, {fullname: 'Max', imagepath: 'images/max.png'},
+                {fullname: 'Paul', imagepath: 'images/paul.png'}, {fullname: 'Peter', imagepath: 'images/peter.png'},
+                {fullname: 'Philip', imagepath: 'images/philip.png'}, {fullname: 'Richard', imagepath: 'images/richard.png'},
+                {fullname: 'Robert', imagepath: 'images/robert.png'}, {fullname: 'Sam', imagepath: 'images/sam.png'},
+                {fullname: 'Susan', imagepath: 'images/susan.png'}, {fullname: 'Tom', imagepath: 'images/tom.png'},
+            ]
+        }
+    </script>
+</head>
+<body>
+    <h1>INDOVINA CHI</h1>
+    <br/><br/>
+    <div data-component="board" id="redBoard"></div>
+
+    <script>
+        var model  = new Model(data);
+        new Promises()
+            .imports('board', components)
+            .onDone(function (Board) {
+                var redBoard = new Board(document.getElementById('redBoard'), model);
+            });
+    </script>
+</body>
+</html>

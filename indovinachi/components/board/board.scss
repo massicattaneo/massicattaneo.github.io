@@ -1,0 +1,21 @@
+.components.board {
+  display: inline-block;
+  width: 1010px;
+  >div {
+    background-color: #999999;
+    display: inline-block;
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0px;
+    }
+  }
+
+  >div.red {
+    background-color: #BE0502;
+  }
+  >div.blue {
+    background-color: #00067E;
+  }
+}
+

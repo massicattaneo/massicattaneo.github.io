@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Todo List</title>
+    <!-- css -->
+    <link rel="stylesheet" href="templates/components.css"/>
+    <!-- javascript -->
+    <script src="../core/build/core.min.js"></script>
+    <script src="templates/templates.js"></script>
+    <script src="templates/components.js"></script>
+    <style>
+        body {background-color: #eee; font-family: Arial;}
+        section {margin: 0 auto; max-width: 800px; text-align: center; padding: 11px;}
+    </style>
+</head>
+<body>
+    <section>
+        <h1>TODOs</h1>
+        <div data-component="todoAdd" id="todoAdd"></div>
+        <div data-component="todoInfoBar" id="todoInfoBar"></div>
+        <ul data-component="todoList" id="todoList"></ul>
+    </section>
+
+    <script>
+        var data = {
+            todos: [
+                {label: '1', completed: false},
+                {label: '2', completed: false},
+                {label: '3', completed: false},
+                {label: '4', completed: false}
+            ]
+        };
+        var model = new Model(data);
+
+        new Promises()
+                .imports('todoAdd', components)
+                .imports('todoList', components)
+                .imports('todoInfoBar', components)
+                .onDone(function(TodoAdd , TodoList, TodoInfoBar) {
+                    var todoAdd = new TodoAdd(document.getElementById('todoAdd'));
+                    var todoInfoBar = new TodoInfoBar(document.getElementById('todoInfoBar'));
+                    var todoList = new TodoList(document.getElementById('todoList'), model);
+                });
+    </script>
+</body>
+</html>

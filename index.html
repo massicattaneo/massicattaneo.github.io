@@ -2,56 +2,50 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>Indovina Chi</title>
-    <script src="templates/templates.js"></script>
-    <script src="core.min.js"></script>
-    <link rel="stylesheet" href="templates/components.css"/>
-    <script src="templates/components.js"></script>
+    <title>My Demo Page</title>
     <style>
-        body {
-            font-family: Arial;
-            font-size: 14px;
-            margin: 6px;
-            text-align: center;
-        }
+        body {font-family: Arial;}
     </style>
 </head>
 <body>
-<h1>INDOVINA CHI</h1>
-<div data-component="board" id="redBoard">
-    <cards><label>Flavio</label></cards>
-    <cards><label>Chiara</label></cards>
-    <cards><label>Stefania M.</label></cards>
-    <cards><label>Fabio</label></cards>
-    <cards><label>Viviana</label></cards>
-    <cards><label>Massimiliano</label></cards>
-    <cards><label>Giovanni</label></cards>
-    <cards><label>Cacao</label></cards>
-    <cards><label>Secco</label></cards>
-    <cards><label>Stefania R.</label></cards>
-    <cards><label>Samuele</label></cards>
-    <cards><label>Claudio</label></cards>
-    <cards><label>Serena</label></cards>
-    <cards><label>Donata</label></cards>
-    <cards><label>Laura</label></cards>
-    <cards><label>Pg</label></cards>
-</div>
+    <div style="width: 800px; margin: 0 auto;   box-shadow: 2px 3px 8px 1px #CBCBCB; padding: 5px 20px;">
+        <h1>My Personal page</h1>
+        <img src="myPhoto.jpg" style="float: left; width: 150px; margin: 0 15px 20px 0;" />
+        <h5>
+            This page is under continuous construction. <br/><br/>
+            I am working on a <a href="https://github.com/massicattaneo/core">core library</a>
+            to speed up developing web components. The library is not compatible with old browsers but I will integrate it.
+            <br/><br/>
+            Now I am focusing on the development of the main features of the library.
+        </h5>
+        <div style="clear: both;"></div>
+        <h3>
+            Simple Web examples that use only the library<br/>
+            <em style="font-size: 11px;">no jquery, backbone, angular or other library are required</em>
+        </h3>
 
-<script>
-    function setSelected(obj) {
-        var selected = obj.getElementsByTagName('div')[0];
-        if (selected.className === 'selected') {
-            selected.className = ''
-        } else {
-            selected.className = 'selected'
-        }
-    }
-    new Promises()
-            .imports('Board', components)
-            .onDone(function (Board) {
-                var redBoard = new Board(document.getElementById('redBoard'));
-                var blueBoard = new Board(document.getElementById('blueBoard'));
-            });
-</script>
+        <table style="width: 100%; text-align: center;">
+            <tr>
+                <th>&nbsp;</th>
+                <th>DEMO LINK</th>
+                <th>GITHUB CODE</th>
+                <th>LIBRARY USED</th>
+            </tr>
+            <tr>
+                <td>Todo List</td>
+                <td><a href="todolist/index.html">Demo</a></td>
+                <td><a href="https://github.com/massicattaneo/todolist">Code</a></td>
+                <td><a href="https://github.com/massicattaneo/core">core library</a></td>
+            </tr>
+            <tr>
+                <td>Indovina Chi</td>
+                <td><a href="indovinachi/index.html">Demo</a></td>
+                <td><a href="https://github.com/massicattaneo/todolist">Code</a></td>
+                <td><a href="https://github.com/massicattaneo/core">core library</a></td>
+            </tr>
+        </table>
+        <br/><br/>
+
+    </div>
 </body>
 </html>

@@ -1,0 +1,35 @@
+body {
+  padding: 0;
+  font-family: arial, sans-serif;
+  margin: 50px 0 0 0; }
+
+section#images {
+  text-align: center; }
+  section#images figure {
+    display: inline-table;
+    margin: 11px; }
+    section#images figure img {
+      max-height: 173px;
+      max-width: 100%;
+      position: relative; }
+      @media screen and (max-width: 550px) {
+        section#images figure img {
+          max-height: inherit; } }
+
+section#paragraphs .column {
+  float: left;
+  width: 33%;
+  text-align: justify; }
+  @media screen and (max-width: 768px) {
+    section#paragraphs .column {
+      width: 50%; } }
+  @media screen and (max-width: 550px) {
+    section#paragraphs .column {
+      width: 100%; } }
+  section#paragraphs .column article {
+    padding: 11px; }
+
+footer {
+  clear: both;
+  text-align: center;
+  background-color: #dddddd; }

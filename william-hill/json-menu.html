@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <title>json menu</title>
+    <link rel="stylesheet" href="build/views.css"/>
+    <script src="../core/core.js"></script>
+    <script src="build/views.js"></script>
+    <script src="build/components.js"></script>
+</head>
+<body>
+
+<div data-component="jsonmenu" id="jsonmenu"></div>
+
+<script>
+    var load = new Promises(), model, menu;
+    load.add(new HttpRequest('menu.json'));
+    load
+            .imports('jsonmenu', components)
+            .onDone(function (JsonMenu, jsonData) {
+                model = new Model(JSON.parse(jsonData));
+                menu = new JsonMenu(document.getElementById('jsonmenu'),model);
+            });
+</script>
+</body>
+</html>

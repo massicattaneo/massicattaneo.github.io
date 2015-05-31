@@ -1,10 +1,7 @@
 components
     .create('card', function () {
         var c = Class.extend(Component).create({
-            constructor: function (htmlNode, data) {
-                this.super(htmlNode, data);
-            },
-            flip: function(event) {
+            flip: function() {
                 this.get('faces').toggleClass('hidden');
             }
         });
@@ -13,9 +10,7 @@ components
 components
     .create('board', function () {
         var c = Class.extend(Component).create({
-            constructor: function (htmlNode, data) {
-                this.super(htmlNode, data);
-            }
+
         });
         return c;
     });
